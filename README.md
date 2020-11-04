@@ -9,7 +9,7 @@ To build images you either can interactively use the `menuconfig` or a configura
 
 ```sh
 # Build
-docker build --no-cache -t pttrr/freetz-ng-docker
+$ docker build --no-cache -t pttrr/freetz-ng-docker
 # Build with menuconfig
 $ docker run --rm -it -v $PWD/images:/freetz/images pttrr/freetz-ng-docker
 
