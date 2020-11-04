@@ -1,13 +1,13 @@
 all: lint build
 
 build:
-	docker build -t mtneug/freetz .
+        docker build -t ptTrR/freetz-ng .
 .PHONY: build
 
 clean:
-	-docker rmi mtneug/freetz
+        -docker rmi ptTrR/freetz-ng
 .PHONY: clean
 
 lint:
-	shellcheck *.sh
+        shellcheck *.sh
 .PHONY: lint

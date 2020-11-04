@@ -1,5 +1,4 @@
-FROM ubuntu:18.04
-LABEL maintainer="Matthias Neugbauer <mtneug@mailbox.org>"
+FROM ubuntu:20.10
 
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y \
@@ -12,12 +11,12 @@ RUN apt-get update \
       \
       libusb-dev libacl1-dev libcap-dev libc6-dev-i386 lib32ncurses5-dev \
       lib32stdc++6 libglib2.0-dev libattr1-dev libncurses5-dev libreadline-dev \
-      libstring-crc32-perl zlib1g-dev \
+      libstring-crc32-perl zlib1g-dev subversion inkscape  \
  && rm -rf /var/lib/apt/lists/*
 
 RUN useradd freetz \
- && mkdir -p /freetz/images \
- && chown -R freetz /freetz \
+ && mkdir -p /freetz/images /home/freetz \
+ && chown -R freetz /freetz /home/freetz \
  && mkdir -p /patches \
  && chown -R freetz /patches
 
@@ -26,6 +25,7 @@ USER freetz
 
 VOLUME /freetz/images
 
-COPY docker-entrypoint.sh /entrypoint.sh
-ENTRYPOINT ["/entrypoint.sh"]
+COPY docker-entrypoint.sh /docker-entrypoint.sh
+#RUN chmod +x /docker-entrypoint.sh
+ENTRYPOINT ["bash", "/docker-entrypoint.sh"]
 CMD ["build", "master"]

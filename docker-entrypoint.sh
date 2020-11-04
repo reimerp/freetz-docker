@@ -37,7 +37,7 @@ build() {
   # can't use clone as the directory could be non-empty
   cd /freetz
   git init
-  git remote add origin "https://github.com/Freetz/freetz.git"
+  git remote add origin "https://github.com/Freetz-NG/freetz-ng.git"
   git fetch
   git checkout "$rev"
 
