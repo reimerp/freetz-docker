@@ -26,6 +26,5 @@ USER freetz
 VOLUME /freetz/images
 
 COPY docker-entrypoint.sh /docker-entrypoint.sh
-#RUN chmod +x /docker-entrypoint.sh
 ENTRYPOINT ["bash", "/docker-entrypoint.sh"]
 CMD ["build", "master"]
