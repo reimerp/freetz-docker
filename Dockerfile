@@ -30,9 +30,3 @@ VOLUME /freetz/images
 COPY docker-entrypoint.sh /docker-entrypoint.sh
 ENTRYPOINT ["bash", "/docker-entrypoint.sh"]
 CMD ["build", "master"]
-
-E: Package 'gcc-multilib' has no installation candidate
-E: Unable to locate package libc6-dev-i386
-E: Unable to locate package lib32ncurses5-dev
-E: Unable to locate package lib32stdc++6
-E: Couldn't find any package by regex 'lib32stdc++6'
