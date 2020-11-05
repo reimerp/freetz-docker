@@ -1,29 +1,30 @@
-# mtneug/freetz
+# pttrr/freetz-ng-docker
 
-[![Build Status](https://travis-ci.org/mtneug/freetz-docker.svg?branch=master)](https://travis-ci.org/mtneug/freetz-docker) [![](https://images.microbadger.com/badges/version/mtneug/freetz.svg)](https://hub.docker.com/r/mtneug/freetz/) [![](https://images.microbadger.com/badges/image/mtneug/freetz.svg)](http://microbadger.com/images/mtneug/freetz)
+This repository holds files for the `pttrr/freetz-ng-docker` Docker image, a [Freetz-NG](https://github.com/Freetz-NG/freetz-ng) image build environment.
 
-This repository holds files for the `mtneug/freetz` Docker image, a [Freetz](https://freetz.org/) image build environment.
-
+This is a fork from [mtneug-freetz](https://github.com/mtneug/freetz-docker)
 ## Usage
 
 To build images you either can interactively use the `menuconfig` or a configuration file. Below you find some examples:
 
 ```sh
+# Build
+$ docker build --no-cache -t pttrr/freetz-ng-docker
 # Build with menuconfig
-$ docker run --rm -it -v $PWD/images:/freetz/images mtneug/freetz
+$ docker run --rm -it -v $PWD/images:/freetz/images pttrr/freetz-ng-docker
 
 # Build with predefined .config
-$ docker run --rm -it -v $PWD/images:/freetz/images -v $PWD/config:/.config mtneug/freetz
+$ docker run --rm -it -v $PWD/images:/freetz/images -v $PWD/config:/.config pttrr/freetz-ng-docker
 
 # Build with patches
 # put your .patch files into $PWD/patches
-$ docker run --rm -it -v $PWD/patches:/patches -v $PWD/images:/freetz/images mtneug/freetz
+$ docker run --rm -it -v $PWD/patches:/patches -v $PWD/images:/freetz/images pttrr/freetz-ng-docker
 ```
 
 There are also some other commands:
 
 ```sh
-$ docker run --rm mtneug/freetz help
+$ docker run --rm pttrr/freetz-ng-docker help
 Usage:
   build [branch]          Builds a Freetz image from [branch]
     --no-menuconfig         Do not start menuconfig
