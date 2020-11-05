@@ -15,8 +15,8 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/*
 
 RUN useradd freetz \
- && mkdir -p /freetz/images /home/freetz \
- && chown -R freetz /freetz /home/freetz \
+ && mkdir -p /freetz/images \
+ && chown -R freetz /freetz \
  && mkdir -p /patches \
  && chown -R freetz /patches
 
