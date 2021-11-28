@@ -12,6 +12,7 @@ RUN apt-get update \
       libusb-dev libacl1-dev libcap-dev libc6-dev-i386 lib32ncurses5-dev \
       lib32stdc++6 libglib2.0-dev libattr1-dev libncurses5-dev libreadline-dev \
       libstring-crc32-perl zlib1g-dev subversion inkscape  \
+      kmod execstack rsync locales \
  && rm -rf /var/lib/apt/lists/*
 
 RUN useradd freetz \
@@ -21,6 +22,10 @@ RUN useradd freetz \
  && chown -R freetz /freetz \
  && mkdir -p /patches \
  && chown -R freetz /patches
+
+# en_US.UTF-8 in a prereq for uClibc
+RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
+ && locale-gen
 
 WORKDIR /freetz
 USER freetz
